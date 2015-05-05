@@ -17,7 +17,11 @@
 
 - (void)viewDidLoad
 {
+	self.view.backgroundColor = [UIColor grayColor];
 	CGRect bounds = self.view.bounds;
+	
+	/********************************Inside***********************/
+	
 	CGFloat width = 120;
 	UIView *polygonView = [[UIView alloc] initWithFrame:CGRectMake((CGRectGetWidth(bounds) - width) / 2, 20, width, width)];
 	polygonView.layer.masksToBounds = YES;
@@ -50,6 +54,37 @@
 	UIView *subView = [[UIView alloc] initWithFrame:CGRectInset(polygonView.bounds, 20, 20)];
 	subView.backgroundColor = [UIColor redColor];
 	[polygonView addSubview:subView];
+	
+	/********************************Outside***********************/
+	
+	UIView *anotherPolygon = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetMinX(polygonView.frame), CGRectGetMaxY(polygonView.frame), width, width)];
+	anotherPolygon.backgroundColor = [UIColor darkGrayColor];
+	[self.view addSubview:anotherPolygon];
+	
+	path = [UIBezierPath bezierPathWithPolygonInRect:CGRectInset(anotherPolygon.bounds, 10, 10) numberOfSides:10];
+	[path applyTransform:CGAffineTransformMakeTranslation(-CGRectGetWidth(anotherPolygon.bounds) / 2, -CGRectGetHeight(anotherPolygon.bounds) / 2)];
+	[path applyTransform:CGAffineTransformMakeRotation(M_PI / 2)];
+	[path applyTransform:CGAffineTransformMakeTranslation(CGRectGetWidth(anotherPolygon.bounds) / 2, CGRectGetHeight(anotherPolygon.bounds) / 2)];
+	
+	// Create outMaskPath outside path
+	CGMutablePathRef outMaskPath = CGPathCreateMutable();
+	CGPathAddRect(outMaskPath, NULL, anotherPolygon.bounds);
+	CGPathAddPath(outMaskPath, nil, path.CGPath);
+	
+	CAShapeLayer *outShape = [CAShapeLayer layer];
+	outShape.path = outMaskPath;
+	outShape.fillRule = kCAFillRuleEvenOdd;
+	
+	anotherPolygon.layer.mask = outShape;
+	
+	/********************************Add border for path***********************/
+	
+	CAShapeLayer *border = [CAShapeLayer layer];
+	border.borderColor = [UIColor blackColor].CGColor;
+	border.borderWidth = 1 / [UIScreen mainScreen].scale;
+	border.path = path.CGPath;
+	
+	[anotherPolygon.layer addSublayer:border];
 }
 
 @end
