@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0808448D1AF6567800D9BDD0 /* UIBezierPath+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 0808448C1AF6567800D9BDD0 /* UIBezierPath+Utility.m */; };
 		0874CA3B1AE7AAAB00B24E4A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0874CA3A1AE7AAAB00B24E4A /* main.m */; };
 		0874CA3E1AE7AAAB00B24E4A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0874CA3D1AE7AAAB00B24E4A /* AppDelegate.m */; };
 		0874CA411AE7AAAB00B24E4A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0874CA401AE7AAAB00B24E4A /* ViewController.m */; };
@@ -26,6 +27,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0808448B1AF6567800D9BDD0 /* UIBezierPath+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+Utility.h"; sourceTree = "<group>"; };
+		0808448C1AF6567800D9BDD0 /* UIBezierPath+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+Utility.m"; sourceTree = "<group>"; };
 		0874CA351AE7AAAB00B24E4A /* PolygonView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PolygonView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0874CA391AE7AAAB00B24E4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0874CA3A1AE7AAAB00B24E4A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -79,6 +82,8 @@
 		0874CA371AE7AAAB00B24E4A /* PolygonView */ = {
 			isa = PBXGroup;
 			children = (
+				0808448B1AF6567800D9BDD0 /* UIBezierPath+Utility.h */,
+				0808448C1AF6567800D9BDD0 /* UIBezierPath+Utility.m */,
 				0874CA3C1AE7AAAB00B24E4A /* AppDelegate.h */,
 				0874CA3D1AE7AAAB00B24E4A /* AppDelegate.m */,
 				0874CA3F1AE7AAAB00B24E4A /* ViewController.h */,
@@ -215,6 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0808448D1AF6567800D9BDD0 /* UIBezierPath+Utility.m in Sources */,
 				0874CA411AE7AAAB00B24E4A /* ViewController.m in Sources */,
 				0874CA3E1AE7AAAB00B24E4A /* AppDelegate.m in Sources */,
 				0874CA3B1AE7AAAB00B24E4A /* main.m in Sources */,
